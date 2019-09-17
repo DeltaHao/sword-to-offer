@@ -4,6 +4,7 @@
         "stack": "cpp",
         "utility": "cpp",
         "queue": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "algorithm": "cpp"
     }
 }
