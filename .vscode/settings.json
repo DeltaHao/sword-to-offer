@@ -5,6 +5,8 @@
         "utility": "cpp",
         "queue": "cpp",
         "xstring": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp"
     }
 }
