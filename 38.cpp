@@ -17,7 +17,6 @@ class Solution {
 public:
     int TreeDepth(TreeNode* root){//基本操作
         if(!root) return 0;
-        if(!root->left && !root->right) return 1;
         return 1 + max(TreeDepth(root->left), TreeDepth(root->right));
     }
 };
