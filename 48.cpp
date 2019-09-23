@@ -11,7 +11,7 @@ public:
         int sum = 0;//不考虑进位的各位相加值
         while(carry){//当有进位时
             sum = num1 ^ num2;//不考虑进位的各位相加值等于各位异或
-            carry = (num1 & num2) << 1;//进位值等于各位与后左移一位
+            carry = (num1 & num2) << 1;//进位值等于各位相与后左移一位
             num1 = sum;//如果有进位时将两值相加，重复以上两步
             num2 = carry;
         }
