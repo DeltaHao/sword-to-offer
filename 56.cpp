@@ -16,9 +16,11 @@ struct ListNode{
 class Solution{
 public:
     ListNode* deleteDuplication(ListNode* pHead){
-        ListNode *fast = pHead->next;
+        if(!pHead) return nullptr;//如果是空结点，直接返回空结点
+        ListNode *fast = pHead->next;//不然这一步会出错
         ListNode *slow = pHead;
         set <int> repeatVals;
+        
         while(fast){//第一遍 记录下所有重复的节点
             if(fast->val == slow->val){
                 repeatVals.insert(fast->val);
@@ -35,7 +37,6 @@ public:
                 //重置fast和slow                               
                 slow = pHead;
                 fast = pHead->next;
-                if(!pHead->next) return nullptr;//如果已经是最后一位.返回空节点
                 continue;                                
             }
             if(repeatVals.find(fast->val) != repeatVals.end()){//如果有重复的节点，删除之
@@ -47,15 +48,16 @@ public:
                 slow = slow->next;
             }
         }
+        if(repeatVals.find(pHead->val) != repeatVals.end()) return nullptr;
         return pHead;
     }
 };
 
 int main(){
-    ListNode* head = new ListNode(1);
-    ListNode* p = head;
-    int arr[7]{1,1,2,3,4,4,5};
-    for(int i=1;i<7;i++){
+    int arr[3]{1,3,3};
+    ListNode* head = new ListNode(arr[0]);
+    ListNode* p = head;   
+    for(int i=1;i<3;i++){
         ListNode* q = new ListNode(arr[i]);
         p->next  = q;
         p = q;
