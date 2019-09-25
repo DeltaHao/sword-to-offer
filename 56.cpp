@@ -36,7 +36,7 @@ public:
                 pHead = pHead->next;
                 //重置fast和slow                               
                 slow = pHead;
-                fast = pHead->next;
+                fast = pHead->next;//但是这里有一个问题，最后一个节点来不及判断，所以要在循环结束后判断
                 continue;                                
             }
             if(repeatVals.find(fast->val) != repeatVals.end()){//如果有重复的节点，删除之
@@ -48,7 +48,7 @@ public:
                 slow = slow->next;
             }
         }
-        if(repeatVals.find(pHead->val) != repeatVals.end()) return nullptr;
+        if(repeatVals.find(pHead->val) != repeatVals.end()) return nullptr;//判断最后一个节点是否重复
         return pHead;
     }
 };
